@@ -1,0 +1,35 @@
+name: docker-traefik
+version: git
+summary: Traefik Container
+description: Traefik is an open-source Application Proxy and the core of the Traefik Hub Runtime Platform.
+
+base: core22
+grade: stable
+confinement: strict
+
+platforms:
+  amd64:
+  arm64:
+
+environment:
+  PATH: $SNAP/docker/bin:$PATH
+
+plugs:
+  docker-executables:
+    interface: content
+    content: docker-executables
+    target: $SNAP/docker
+    default-provider: docker
+
+apps:
+  portainer:
+    command: bin/run.sh
+    daemon: simple
+    plugs:
+      - docker
+      - docker-executables
+
+parts:
+  overlay:
+    plugin: dump
+    source: overlay

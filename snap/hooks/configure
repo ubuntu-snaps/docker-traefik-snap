@@ -1,0 +1,19 @@
+#!/bin/sh -eu
+
+cat > $SNAP_DATA/traefik.yml <<EOF
+api:
+  insecure: true
+log:
+  level: info
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+  file:
+    directory: /etc/traefik/conf.d
+    watch: true
+EOF
+
+cat > $SNAP_DATA/env.conf <<EOF
+EOF
+
+snapctl restart "$SNAP_INSTANCE_NAME"
