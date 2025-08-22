@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="$SNAP_INSTANCE_NAME"
+NAME="traefik"
 IMAGE=$(snapctl get image)
 
 for PLUG in docker docker-executables; do

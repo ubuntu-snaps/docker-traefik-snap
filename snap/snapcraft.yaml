@@ -22,7 +22,7 @@ plugs:
     default-provider: docker
 
 apps:
-  portainer:
+  traefik:
     command: bin/run.sh
     daemon: simple
     plugs:

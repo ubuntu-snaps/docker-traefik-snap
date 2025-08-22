@@ -1,5 +1,5 @@
 #!/bin/bash -eu
 
-NAME="$SNAP_INSTANCE_NAME"
+NAME=traefik #"$SNAP_INSTANCE_NAME"
 
 docker rm "$NAME"
