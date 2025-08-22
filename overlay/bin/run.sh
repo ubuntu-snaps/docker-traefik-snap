@@ -19,7 +19,6 @@ if [ ! "$(docker ps --all --quiet --filter name="$NAME")" ]; then
         -p 443:443 \
         -v /var/run/docker.sock:/var/run/docker.sock \
         -v $SNAP_DATA:/etc/traefik \
-        --log-driver none \
         --env-file $SNAP_DATA/env.conf \
         "$IMAGE"
 fi

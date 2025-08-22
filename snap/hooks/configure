@@ -1,5 +1,9 @@
 #!/bin/sh -eu
 
+if [ ! -d $SNAP_DATA/conf.d ]; then
+  mkdir -p $SNAP_DATA/conf.d
+fi
+
 cat > $SNAP_DATA/traefik.yml <<EOF
 api:
   insecure: true
